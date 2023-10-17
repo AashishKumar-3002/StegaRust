@@ -1,16 +1,18 @@
+use crate::chunk::Chunk;
+use crate::chunk_type::ChunkType;
+use crate::png::Png;
 use std::fs;
 use std::fs::File;
 use std::io::Read;
 use std::str::FromStr;
-use crate::chunk::Chunk;
-use crate::chunk_type::ChunkType;
-use crate::png::Png;
 
-pub fn print (path: &str) {
+pub fn print(path: &str) {
     let buffer = get_bytes_from_path(path);
     let png = Png::try_from(buffer.as_slice()).unwrap();
 
-    let chunk_types: Vec<String> = png.chunks().iter()
+    let chunk_types: Vec<String> = png
+        .chunks()
+        .iter()
         .map(|c| c.chunk_type().to_string())
         .collect();
     println!("The following chunks can be decoded:");
@@ -23,10 +25,13 @@ pub fn encode(path: &str, chunk_type: &str, message: &str) -> std::io::Result<bo
     let buffer = get_bytes_from_path(path);
     let mut png = Png::try_from(buffer.as_slice()).unwrap();
 
-    let i_end = png.remove_chunk("IEND").expect("Unable to remove end chunk");
-    png.append_chunk(
-        Chunk::new(ChunkType::from_str(chunk_type).unwrap(), message.as_bytes().into())
-    );
+    let i_end = png
+        .remove_chunk("IEND")
+        .expect("Unable to remove end chunk");
+    png.append_chunk(Chunk::new(
+        ChunkType::from_str(chunk_type).unwrap(),
+        message.as_bytes().into(),
+    ));
     png.append_chunk(i_end);
 
     let write_path = std::path::Path::new(path);
@@ -50,7 +55,8 @@ pub fn remove(path: &str, chunk_type: &str) -> std::io::Result<bool> {
     let buffer = get_bytes_from_path(path);
     let mut png = Png::try_from(buffer.as_slice()).unwrap();
 
-    png.remove_chunk(chunk_type).expect("Unable to remove chunk");
+    png.remove_chunk(chunk_type)
+        .expect("Unable to remove chunk");
     let write_path = std::path::Path::new(path);
     fs::write(write_path, png.as_bytes())?;
     println!("Chunk removed!");

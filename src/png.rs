@@ -18,7 +18,13 @@ impl TryFrom<&[u8]> for Png {
             return Err(Error::from("Invalid header"));
         }
         while iter.len() >= 12 {
-            let first4: [u8; 4] = iter.clone().take(4).copied().collect::<Vec<u8>>().as_slice().try_into()?;
+            let first4: [u8; 4] = iter
+                .clone()
+                .take(4)
+                .copied()
+                .collect::<Vec<u8>>()
+                .as_slice()
+                .try_into()?;
             let length = u32::from_be_bytes(first4);
 
             let chunk = Chunk::try_from(
