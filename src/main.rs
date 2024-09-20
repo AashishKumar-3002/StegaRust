@@ -67,7 +67,7 @@ fn encode_endpoint(encode_data: Json<EncodeData>) -> Custom<Json<PrintResponse>>
         Ok(_) => {
             let response = PrintResponse {
                 status: "success".to_string(),
-                chunks: None,
+                chunks: Some(vec![chunk_type.clone()]),
                 message: "Encoding successful!".to_string(),
             };
             Custom(Status::Ok, Json(response))
@@ -98,7 +98,7 @@ fn decode_endpoint(decode_data: Json<DecodeData>) -> Custom<Json<PrintResponse>>
         Ok(message) => {
             let response = PrintResponse {
                 status: "success".to_string(),
-                chunks: None,
+                chunks: Some(vec![chunk_type.clone()]),
                 message,
             };
             Custom(Status::Ok, Json(response))
@@ -159,8 +159,8 @@ fn remove_endpoint(remove_data: Json<RemoveData>) -> Custom<Json<PrintResponse>>
         Ok(_) => {
             let response = PrintResponse {
                 status: "success".to_string(),
-                chunks: None,
-                message: "Chunk removal successful!".to_string(),
+                chunks: Some(vec![chunk_type.clone()]),
+                message: format!("Chunk {} removal successful!" , chunk_type),
             };
             Custom(Status::Ok, Json(response))
         }
