@@ -9,3 +9,7 @@ edition = "2021"
 byteorder = "1.4.3"
 clap = { version = "4.2.7", features = ["derive"] }
 crc = "3.0.1"
+rocket = {version = "0.5.0" , features = ["json"]}
+serde = { version = "1.0.210", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }
+rocket-multipart-form-data = "0.10.7"
