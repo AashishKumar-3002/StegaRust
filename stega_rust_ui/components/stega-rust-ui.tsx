@@ -57,11 +57,15 @@ export function StegaRustUi() {
       {/* Footer */}
       <footer className="bg-[#2f4f4f] text-white p-4 mt-8">
         <div className="container mx-auto text-center">
-          <p>Developed by Aashish Kumar</p>
-          <a href="https://github.com/AashishKumar-3002/StegaRust/tree/Master_APIs" className="underline">
-            GitHub Repository
-          </a>
-          <p>Version 1.0.0</p>
+          <div className="flex justify-center items-center space-x-4">
+            <span className="font-bold">Developed by Aashish Kumar</span>
+            <span className="font-bold">|</span>
+            <a className="font-bold hover:underline" href="https://github.com/AashishKumar-3002/StegaRust/tree/Master_APIs">
+              GitHub Repository
+            </a>
+            <span className="font-bold">|</span>
+            <span className="font-bold">Version 1.0.0</span>
+          </div>
         </div>
       </footer>
     </div>
