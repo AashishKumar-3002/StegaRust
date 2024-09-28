@@ -4,7 +4,7 @@ import axios from 'axios';
 export const downloadFile = async (fileName: string) => {
     try {
         console.log(fileName)
-        const response = await axios.get(`http://localhost:8000/download/${fileName}`, {
+        const response = await axios.get(`https://stegarust.onrender.com/download/${fileName}`, {
             responseType: 'blob'
         });
         const url = window.URL.createObjectURL(new Blob([response.data]));

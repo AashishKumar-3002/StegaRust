@@ -8,7 +8,7 @@ interface PrintResponse {
 
 export const decodeChunks = async (path: string, chunk_type: String): Promise<PrintResponse> => {
   try {
-    const response = await axios.post('http://localhost:8000/decode', {
+    const response = await axios.post('https://stegarust.onrender.com/decode', {
       path,
       chunk_type
     });

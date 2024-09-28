@@ -8,7 +8,7 @@ interface PrintResponse {
 
 export const removeChunk = async (path: string, chunk_type: string): Promise<PrintResponse> => {
   try {
-    const response = await axios.post('http://localhost:8000/remove', {
+    const response = await axios.post('https://stegarust.onrender.com/remove', {
       path,
       chunk_type
     });

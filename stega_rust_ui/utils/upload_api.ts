@@ -11,7 +11,7 @@ export const uploadImage = async (file: File): Promise<UploadResponse> => {
     const formData = new FormData();
     formData.append('image', file);  // Key should match the expected form field name
 
-    const response = await axios.post('http://localhost:8000/upload', formData, {
+    const response = await axios.post('https://stegarust.onrender.com/upload', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
