@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import EncodeSection from "./Encode"
 import DecodeSection from "./Decode"
 import PrintSection from "./Print"

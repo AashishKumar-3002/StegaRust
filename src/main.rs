@@ -100,7 +100,7 @@ fn encode_endpoint(encode_data: Json<EncodeData>) -> Custom<Json<PrintResponse>>
                 chunks: None,
                 message: e.to_string(),
             };
-            Custom(Status::BadRequest, Json(response))
+            Custom(Status::Ok, Json(response))
         }
     }
 }
@@ -131,7 +131,7 @@ fn decode_endpoint(decode_data: Json<DecodeData>) -> Custom<Json<PrintResponse>>
                 chunks: None,
                 message: e.to_string(),
             };
-            Custom(Status::BadRequest, Json(response))
+            Custom(Status::Ok, Json(response))
         }
     }
 }
@@ -159,7 +159,7 @@ fn print_endpoint(print_data: Json<PrintData>) -> Custom<Json<PrintResponse>> {
                 chunks: None,
                 message: e.to_string()
             };
-            Custom(Status::InternalServerError, Json(response))
+            Custom(Status::Ok, Json(response))
         }
     }
 }
