@@ -34,6 +34,9 @@ const PrintSection = () => {
               }
               alert('Hidden chunks printed successfully');
             }
+            else {
+              setPrintResponse(`Error: ${printResponse.message}`);
+            }
           } else {
             throw new Error('Invalid image path received');
           }

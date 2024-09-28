@@ -43,6 +43,9 @@ const EncodeSection = () => {
               console.log('Encode Response:', encodeResponse);
               downloadFile(file.name);
             }
+            else {
+              setEncodeResponse(`Error: ${encodeResponse.message}`);
+            }
           } else {
             throw new Error('Invalid image path received');
           }

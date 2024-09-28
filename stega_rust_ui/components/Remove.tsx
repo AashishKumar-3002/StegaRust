@@ -42,6 +42,7 @@ const RemoveSection = () => {
               downloadFile(file.name);
               alert('Hidden data removed successfully');
             } else {
+              setRemoveResponse(`Error: ${removeResponse.message}`);
               throw new Error(removeResponse.message);
             }
           } else {

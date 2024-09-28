@@ -40,6 +40,7 @@ const DecodeSection = () => {
               }
               alert('Image successfully decoded');
             } else {
+              setDecodeResponse(`Error: ${decodeResponse.message}`);
               throw new Error(decodeResponse.message);
             }
           } else {
