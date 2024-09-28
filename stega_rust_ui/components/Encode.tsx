@@ -30,7 +30,7 @@ const EncodeSection = () => {
   const handleEncodeClick = async () => {
     if (file && chunk && message) {
       try {
-        let response = await uploadImage(file);
+        const response = await uploadImage(file);
         let file_path = '';
         // check if status is success then extract the image_path
         if (response.status === 'success') {
